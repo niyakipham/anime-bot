@@ -1,0 +1,5 @@
+discord 
+asyncio
+aiohttp
+pandas
+flask

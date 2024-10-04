@@ -24,4 +24,6 @@ jobs:
         pip install -r requirements.txt  # Install dependencies from requirements.txt
 
     - name: Run bot
-      run: python ai.py
+      run: 
+        python ai.py
+        python wall.py

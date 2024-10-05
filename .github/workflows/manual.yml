@@ -8,7 +8,7 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 30  # Set a 30-minute timeout
+    timeout-minutes: 100000000000  # Set a 30-minute timeout
     concurrency:
       group: ${{ github.ref }}
       cancel-in-progress: false  # Avoid canceling in-progress jobs

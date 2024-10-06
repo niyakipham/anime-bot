@@ -9,6 +9,7 @@ intents.message_content = True
 # Tạo một instance bot
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 is_game_active = False
 last_word = ""
@@ -90,4 +91,4 @@ async def on_message(message):
 
     await bot.process_commands(message) 
 
-bot.run('MTI5MjM0MTgxNzQzMzM5MTE2Ng.GeRjjA.FJeQ3D5G323g-5xtBa5sRKSjLlQDGLRHwj45Dw')
+bot.run('TOKEN')

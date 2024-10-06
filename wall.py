@@ -2,12 +2,15 @@ import discord, asyncio, aiohttp
 import pandas as pd
 from discord.ext import commands
 
+TOKEN = os.getenv('DISCORD_TOKEN')
+
 # Khởi tạo intents
 intents = discord.Intents.default()
 intents.message_content = True
 
 # Tạo một instance bot
 bot = commands.Bot(command_prefix='!', intents=intents)
+
 
 # ID của kênh mà bot sẽ chỉ cho phép gửi ả
 # Gộp các ID kênh vào danh sách
@@ -34,4 +37,4 @@ async def on_message(message):
     # Đừng quên gọi process_commands để xử lý các lệnh khác
     await bot.process_commands(message)
 
-bot.run('MTI5MjM5ODAyODg4NzU2MDE5Mw.GzlcYC.orxY4aPlyk3H5eEPb3p867mvlHPs0G2UJaHbm0')
+bot.run('TOKEN')

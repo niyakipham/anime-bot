@@ -43,9 +43,9 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run both bots simultaneously
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
       run: |
         python ai.py &  # Chạy bot ai.py
         python noitu.py &  
         python wall.py & 
-      env:
-        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}

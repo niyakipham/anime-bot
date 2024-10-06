@@ -42,6 +42,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run bot
+    - name: Run both bots simultaneously
       run: |
-        python ai.py
+        python ai.py &  # Chạy bot ai.py
+        python bot2.py &  # Chạy bot bot2.py
+        wait  # Đảm bảo chờ cả hai bot hoàn thành trước khi kết thúc job

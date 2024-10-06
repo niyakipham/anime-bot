@@ -46,4 +46,5 @@ jobs:
       run: |
         python ai.py &  # Chạy bot ai.py
         python noitu.py &  
+        python wall.py & 
         wait  # Đảm bảo chờ cả hai bot hoàn thành trước khi kết thúc job

@@ -228,4 +228,4 @@ async def on_message(message):
 
 
 # Thay 'YOUR_BOT_TOKEN' bằng token của bot của bạn
-bot.run('MTI4OTUyODk5NzA4ODA2NzYwNg.G9R7e3.dlVut9wb5CFjYInBF-YGmSRhcIss6_OnNUat28')
+bot.run('TOKEN')

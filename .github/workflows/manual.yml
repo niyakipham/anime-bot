@@ -1,4 +1,4 @@
-name: tự động hóa bot
+name: tự động hóa bot discord
 
 on:
   push:

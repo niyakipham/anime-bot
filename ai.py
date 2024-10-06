@@ -225,6 +225,4 @@ async def on_message(message):
     # Đừng quên gọi on_message từ lớp cha để các lệnh khác vẫn hoạt động
     await bot.process_commands(message)
 
-token = os.getenv("DISCORD_TOKEN")
-# Thay 'YOUR_BOT_TOKEN' bằng token của bot của bạn
-bot.run('token')
+bot.run('DISCORD_TOKEN')

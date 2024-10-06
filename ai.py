@@ -245,7 +245,7 @@ async def on_ready():
 
 
 @bot.command()
-async def startnoitu(ctx):
+async def noitu(ctx):
     global is_game_active, last_word, players
 
     if is_game_active:

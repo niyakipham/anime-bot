@@ -1,4 +1,4 @@
-name: Run Discord Bot
+name: Run Bot Anime
 
 on:
   push:
@@ -45,4 +45,3 @@ jobs:
     - name: Run bot
       run: |
         python ai.py
-        python noitu.py

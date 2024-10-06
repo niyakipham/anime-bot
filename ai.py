@@ -245,7 +245,7 @@ async def on_ready():
 
 
 @bot.command()
-async def start(ctx):
+async def startnoitu(ctx):
     global is_game_active, last_word, players
 
     if is_game_active:
@@ -258,7 +258,7 @@ async def start(ctx):
 
 
 @bot.command()
-async def end(ctx):
+async def endnoitu(ctx):
     global is_game_active
 
     if is_game_active:
@@ -294,7 +294,7 @@ async def on_message(message):
                 last_word = current_phrase.split()[-1]  # Cập nhật từ cuối mới
                 if message.author not in players:
                     players.append(message.author)  # Thêm người chơi mới vào danh sách
-                await message.channel.send(f"{message.author.mention} đã nối từ thành công! Từ tiếp theo là: {last_word}")
+                await message.channel.send(f"{message.author.mention} đã nối từ thành công! Từ tiếp theo bắt đầu bằng: '{last_word}'")
             else:
                 await message.channel.send(f"{message.author.mention} đã nối sai từ! Trò chơi kết thúc.")
                 is_game_active = False

@@ -2,7 +2,6 @@ import discord, asyncio, aiohttp
 import pandas as pd
 from discord.ext import commands
 
-# Load the CSV data
 anime_data = pd.read_csv('anime.csv')
 
 intents = discord.Intents.default()

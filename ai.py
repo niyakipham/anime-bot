@@ -237,7 +237,7 @@ async def on_message(message):
 is_game_active = False
 last_word = ""
 players = []
-default_channel_id = 1289581532272660510  # Thay bằng ID kênh mặc định của bạn
+default_channel_id = 1292292057490264085  # Thay bằng ID kênh mặc định của bạn
 
 
 @bot.event

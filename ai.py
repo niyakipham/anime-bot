@@ -245,12 +245,16 @@ async def on_ready():
     # Khi bot sẵn sàng, gửi thông báo vào kênh mặc định
     channel = bot.get_channel(default_channel_id)
     if channel:
-        await channel.send("Bot đã sẵn sàng! Nhập `!noitu` để bắt đầu trò chơi nối từ.")
+        await channel.send("Bot đã sẵn sàng! Nhập `!start` để bắt đầu trò chơi nối từ.")
     print(f'{bot.user} đã sẵn sàng!')
 
 
 @bot.command()
-async def noitu(ctx):
+async def start(ctx):
+    # Kiểm tra xem bot có đang ở kênh mặc định không
+    if ctx.channel.id != default_channel_id:
+        return  # Không làm gì nếu lệnh được gọi từ kênh khác
+
     global is_game_active, last_word, players
 
     if is_game_active:
@@ -263,7 +267,11 @@ async def noitu(ctx):
 
 
 @bot.command()
-async def endnoitu(ctx):
+async def end(ctx):
+    # Kiểm tra xem bot có đang ở kênh mặc định không
+    if ctx.channel.id != default_channel_id:
+        return  # Không làm gì nếu lệnh được gọi từ kênh khác
+
     global is_game_active
 
     if is_game_active:
@@ -277,8 +285,8 @@ async def endnoitu(ctx):
 async def on_message(message):
     global is_game_active, last_word, players
 
-    # Bỏ qua tin nhắn của chính bot và các lệnh
-    if message.author == bot.user:
+    # Bỏ qua tin nhắn của chính bot và kiểm tra nếu ở kênh không phải mặc định
+    if message.author == bot.user or message.channel.id != default_channel_id:
         return
 
     if message.content.startswith("!") or not is_game_active:

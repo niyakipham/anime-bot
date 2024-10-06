@@ -10,8 +10,6 @@ intents.message_content = True
 # Create a bot instance
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-TOKEN = os.getenv('DISCORD_TOKEN')
-
 # Command: Fetch anime information by name
 @bot.command()
 async def anime(ctx, *, anime_name: str):
@@ -229,4 +227,4 @@ async def on_message(message):
 
 
 # Thay 'YOUR_BOT_TOKEN' bằng token của bot của bạn
-bot.run('TOKEN')
+bot.run('DISCORD_TOKEN')

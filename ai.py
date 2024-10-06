@@ -1,6 +1,7 @@
 import discord, asyncio, aiohttp
 import pandas as pd
 from discord.ext import commands
+import noitu
 
 anime_data = pd.read_csv('anime.csv')
 

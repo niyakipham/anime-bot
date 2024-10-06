@@ -37,4 +37,4 @@ async def on_message(message):
     # Đừng quên gọi process_commands để xử lý các lệnh khác
     await bot.process_commands(message)
 
-bot.run('TOKEN')
+bot.run(os.getenv('DISCORD_TOKEN'))

@@ -237,10 +237,15 @@ async def on_message(message):
 is_game_active = False
 last_word = ""
 players = []
+default_channel_id = 1289581532272660510  # Thay bằng ID kênh mặc định của bạn
 
 
 @bot.event
 async def on_ready():
+    # Khi bot sẵn sàng, gửi thông báo vào kênh mặc định
+    channel = bot.get_channel(default_channel_id)
+    if channel:
+        await channel.send("Bot đã sẵn sàng! Nhập `!noitu` để bắt đầu trò chơi nối từ.")
     print(f'{bot.user} đã sẵn sàng!')
 
 
@@ -294,13 +299,12 @@ async def on_message(message):
                 last_word = current_phrase.split()[-1]  # Cập nhật từ cuối mới
                 if message.author not in players:
                     players.append(message.author)  # Thêm người chơi mới vào danh sách
-                await message.channel.send(f"{message.author.mention} đã nối từ thành công! Từ tiếp theo bắt đầu bằng: '{last_word}'")
+                await message.channel.send(f"{message.author.mention} đã nối từ thành công! Cụm tù tiếp theo bắt đầu bằng: '{last_word}'")
             else:
                 await message.channel.send(f"{message.author.mention} đã nối sai từ! Trò chơi kết thúc.")
                 is_game_active = False
 
     await bot.process_commands(message)  # Để xử lý các lệnh khác
-
 
 # Run the bot
 bot.run('MTI4OTUyODk5NzA4ODA2NzYwNg.G9R7e3.dlVut9wb5CFjYInBF-YGmSRhcIss6_OnNUat28')

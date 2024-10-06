@@ -1,35 +1,17 @@
-name: tự động hóa bot discord
+name: Run Discord Bot
 
 on:
   push:
     branches:
-      - main
-  schedule:
-    # Chạy từ 0h đến 6h (00:00 - 06:00)
-    - cron: '0 0 * * *'  # Lúc 0h
-    - cron: '0 3 * * *'  # Lúc 3h
-    
-    # Chạy từ 6h đến 12h (06:00 - 12:00)
-    - cron: '0 6 * * *'  # Lúc 6h
-    - cron: '0 9 * * *'  # Lúc 9h
-
-    # Chạy từ 12h đến 18h (12:00 - 18:00)
-    - cron: '0 12 * * *' # Lúc 12h
-    - cron: '0 15 * * *' # Lúc 15h
-
-    # Chạy từ 18h đến 24h (18:00 - 24:00)
-    - cron: '0 18 * * *' # Lúc 18h
-    - cron: '0 21 * * *' # Lúc 21h
+      - main  # Run the bot when code is pushed to the main branch
+  workflow_dispatch:  # Allows manual triggering of the action
 
 jobs:
-  run:
+  run-bot:
     runs-on: ubuntu-latest
-    timeout-minutes: 360  # Set a 6-hour timeout for each job (6h x 60m)
-    concurrency:
-      group: ${{ github.ref }}
-      cancel-in-progress: false  # Avoid canceling in-progress jobs
+
     steps:
-    - name: Checkout code
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Python
@@ -42,10 +24,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run both bots simultaneously
-      env:
+    - name: Run Discord Bot
+      env:  # Pass the secret token as an environment variable
         DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
       run: |
-        python ai.py &  # Chạy bot ai.py
-        python noitu.py &  
-        python wall.py & 
+        python ai.py  # Replace with your bot script filename

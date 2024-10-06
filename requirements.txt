@@ -3,4 +3,3 @@ asyncio
 aiohttp
 pandas
 flask
-os

@@ -2,7 +2,7 @@ name: Deploy Discord Bot
 
 on:
   push:
-    branches: [ main ]
+    branches: main 
   schedule:
     # Chạy từ 0h đến 6h (00:00 - 06:00)
     - cron: '0 0 * * *'  # Lúc 0h

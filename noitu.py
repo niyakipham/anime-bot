@@ -87,3 +87,7 @@ async def on_message(message):
                 is_game_active = False
 
     await bot.process_commands(message)  # Để xử lý các lệnh khác
+
+
+# Thay 'YOUR_BOT_TOKEN' bằng token của bot của bạn
+bot.run('MTI5MjM0MTgxNzQzMzM5MTE2Ng.GeRjjA.FJeQ3D5G323g-5xtBa5sRKSjLlQDGLRHwj45Dw')

@@ -245,12 +245,12 @@ async def on_ready():
     # Khi bot sẵn sàng, gửi thông báo vào kênh mặc định
     channel = bot.get_channel(default_channel_id)
     if channel:
-        await channel.send("Bot đã sẵn sàng! Nhập `!start` để bắt đầu trò chơi nối từ.")
+        await channel.send("Bot đã sẵn sàng! Nhập `!noitu` để bắt đầu trò chơi nối từ.")
     print(f'{bot.user} đã sẵn sàng!')
 
 
 @bot.command()
-async def start(ctx):
+async def noitu(ctx):
     # Kiểm tra xem bot có đang ở kênh mặc định không
     if ctx.channel.id != default_channel_id:
         return  # Không làm gì nếu lệnh được gọi từ kênh khác
@@ -267,7 +267,7 @@ async def start(ctx):
 
 
 @bot.command()
-async def end(ctx):
+async def endnoitu(ctx):
     # Kiểm tra xem bot có đang ở kênh mặc định không
     if ctx.channel.id != default_channel_id:
         return  # Không làm gì nếu lệnh được gọi từ kênh khác

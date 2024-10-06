@@ -2,12 +2,14 @@ import discord
 import os
 from discord.ext import commands
 
+# Khởi tạo intents
 intents = discord.Intents.default()
-intents.message_content = True  # Cần để xử lý nội dung tin nhắn
+intents.message_content = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+# Tạo một instance bot
+bot = commands.Bot(command_prefix='!', intents=intents)
 
-# Biến toàn cục để theo dõi trạng thái trò chơi
+
 is_game_active = False
 last_word = ""
 players = []
@@ -86,8 +88,6 @@ async def on_message(message):
                 await message.channel.send(f"{message.author.mention} đã nối sai từ! Trò chơi kết thúc.")
                 is_game_active = False
 
-    await bot.process_commands(message)  # Để xử lý các lệnh khác
+    await bot.process_commands(message) 
 
-
-# Thay 'YOUR_BOT_TOKEN' bằng token của bot của bạn
 bot.run('MTI5MjM0MTgxNzQzMzM5MTE2Ng.GeRjjA.FJeQ3D5G323g-5xtBa5sRKSjLlQDGLRHwj45Dw')

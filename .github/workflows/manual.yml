@@ -45,5 +45,5 @@ jobs:
     - name: Run both bots simultaneously
       run: |
         python ai.py &  # Chạy bot ai.py
-        python bot2.py &  # Chạy bot bot2.py
+        python noitu.py &  
         wait  # Đảm bảo chờ cả hai bot hoàn thành trước khi kết thúc job

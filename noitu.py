@@ -1,6 +1,3 @@
-import discord
-from discord.ext import commands
-
 intents = discord.Intents.default()
 intents.message_content = True  # Cần để xử lý nội dung tin nhắn
 
@@ -86,5 +83,3 @@ async def on_message(message):
                 is_game_active = False
 
     await bot.process_commands(message)  # Để xử lý các lệnh khác
-
-bot.run('MTI4OTUyODk5NzA4ODA2NzYwNg.G9R7e3.dlVut9wb5CFjYInBF-YGmSRhcIss6_OnNUat28')

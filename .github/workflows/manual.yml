@@ -45,3 +45,4 @@ jobs:
     - name: Run bot
       run: 
         python ai.py
+        noitu.py

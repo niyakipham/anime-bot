@@ -47,3 +47,5 @@ jobs:
         python ai.py &  # Chạy bot ai.py
         python noitu.py &  
         python wall.py & 
+      env:
+        DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}

@@ -1,4 +1,4 @@
-name: Run Bot Anime
+name: tự động hóa bot
 
 on:
   push:

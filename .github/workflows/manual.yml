@@ -39,7 +39,7 @@ jobs:
           python ai.py &
           python noitu.py &
           python wall.py &
-          sleep 3000000000 # Giữ bot hoạt động trong 3600 giây (1 giờ)
+          sleep 21600 # Giữ bot hoạt động trong 3600 giây (1 giờ)
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           NOITU_TOKEN: ${{ secrets.NOITU_TOKEN }}

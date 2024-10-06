@@ -10,6 +10,7 @@ intents.message_content = True
 # Create a bot instance
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+TOKEN = os.getenv('DISCORD_TOKEN')
 
 # Command: Fetch anime information by name
 @bot.command()

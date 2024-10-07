@@ -45,4 +45,4 @@ jobs:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           NOITU_TOKEN: ${{ secrets.NOITU_TOKEN }}
           WALL_TOKEN: ${{ secrets.WALL_TOKEN }}
-          UNIX: ${{ secrets.UNIX }}
+          UNIX: ${{ secrets.UNIX_TOKEN }}

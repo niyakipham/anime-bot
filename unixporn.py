@@ -56,4 +56,4 @@ async def on_ready():
         await asyncio.sleep(600)  # Wait for 10 minutes
 
 # Run the bot with the token
-bot.run(os.getenv('UNIX'))
+bot.run(os.getenv('UNIX_TOKEN'))

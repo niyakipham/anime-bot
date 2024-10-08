@@ -1,7 +1,6 @@
 import os
 import discord
 import praw
-import asyncio
 from discord.ext import commands
 
 # Set up the Reddit client

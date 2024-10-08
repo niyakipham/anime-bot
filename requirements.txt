@@ -3,5 +3,4 @@ asyncio
 pandas
 flask
 requests
-BeautifulSoup
 

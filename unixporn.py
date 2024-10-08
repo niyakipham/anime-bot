@@ -1,6 +1,7 @@
 import os
 import discord
 import praw
+import asyncio
 from discord.ext import commands
 
 # Set up the Reddit client
@@ -56,4 +57,4 @@ async def on_ready():
         await asyncio.sleep(60)  # Wait for 10 minutes
 
 # Run the bot with the token
-bot.run(os.getenv('UNIX_TOKEN'))
+bot.run(os.getenv('UNIXPORN_TOKEN'))

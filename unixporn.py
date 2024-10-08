@@ -20,7 +20,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Function to scrape the latest post from r/unixporn
 async def get_latest_unixporn_post():
-    subreddit = reddit.subreddit('unixporn')
+    subreddit = reddit.subreddit('Animewallpaper')
     latest_post = next(subreddit.new(limit=1))  # Get the newest post
     return {
         'title': latest_post.title,
@@ -43,7 +43,7 @@ async def fetch_unixporn(ctx):
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-    channel = bot.get_channel(1292039065440485453)
+    channel = bot.get_channel(1291045191687475230)
     
     # Periodically fetch and post the latest Unixporn post every 10 minutes
     while True:
@@ -54,7 +54,7 @@ async def on_ready():
             await channel.send(embed=embed)
         else:
             await channel.send(f"Latest post: {post['title']} \n{post['permalink']}")
-        await asyncio.sleep(600)  # Wait for 10 minutes
+        await asyncio.sleep(60)  # Wait for 10 minutes
 
 # Run the bot with the token
 bot.run(os.getenv('UNIX_TOKEN'))

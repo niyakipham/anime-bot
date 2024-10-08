@@ -4,5 +4,4 @@ aiohttp
 pandas
 flask
 praw
-io
 

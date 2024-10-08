@@ -234,7 +234,8 @@ async def on_message(message):
 reddit = praw.Reddit(
     client_id='7DiD0cU_gsUE7-hCAC2fFA',
     client_secret='K-MdR75pqpLvfo_LYB1UXlE7Vq4xYg',
-    user_agent='unixporn/1.0 by niyakipham'
+    user_agent='unixporn/1.0 by niyakipham',
+    check_for_async=False,
 )
 
 # Set up the Discord bot
@@ -245,7 +246,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 
 # Function to scrape the latest post from r/unixporn
 async def get_latest_unixporn_post():
-    subreddit = reddit.subreddit('unixporn')
+    subreddit = reddit.subreddit('MemePiece')
     latest_post = next(subreddit.new(limit=1))  # Get the newest post
     return {
         'title': latest_post.title,
@@ -268,7 +269,7 @@ async def fetch_unixporn(ctx):
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-    channel = bot.get_channel(1291045191687475230)
+    channel = bot.get_channel(1292039065440485450)
     
     # Periodically fetch and post the latest Unixporn post every 10 minutes
     while True:

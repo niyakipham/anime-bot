@@ -42,7 +42,7 @@ async def fetch_unixporn(ctx):
 @bot.event
 async def on_ready():
     print(f'Logged in as {bot.user.name}')
-    channel = bot.get_channel(1292858223166230619)
+    channel = bot.get_channel(1291045191687475230)
     
     # Periodically fetch and post the latest Unixporn post every 10 minutes
     while True:

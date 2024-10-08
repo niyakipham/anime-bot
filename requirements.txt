@@ -3,5 +3,6 @@ asyncio
 aiohttp
 pandas
 flask
-praw
+requests
+BeautifulSoup
 

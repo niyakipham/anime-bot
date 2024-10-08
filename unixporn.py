@@ -1,60 +1,71 @@
-import os
 import discord
-import praw
+import requests
+from bs4 import BeautifulSoup
+import os
 import asyncio
-from discord.ext import commands
 
-# Set up the Reddit client
-reddit = praw.Reddit(
-    client_id='7DiD0cU_gsUE7-hCAC2fFA',
-    client_secret='K-MdR75pqpLvfo_LYB1UXlE7Vq4xYg',
-    user_agent='unixporn/1.0 by niyakipham',
-    check_for_async=False,
-)
-
-# Set up the Discord bot
+# Discord client setup
 intents = discord.Intents.default()
 intents.messages = True
+bot = discord.Client(intents=intents)
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+# Channel ID where the bot will send updates
+CHANNEL_ID = 1292039065440485450 # Replace with your actual Discord channel ID
 
-# Function to scrape the latest post from r/unixporn
-async def get_latest_unixporn_post():
-    subreddit = reddit.subreddit('Animewallpaper')
-    latest_post = next(subreddit.new(limit=1))  # Get the newest post
-    return {
-        'title': latest_post.title,
-        'image': latest_post.url if latest_post.url.endswith(('.jpg', '.png')) else None,
-        'permalink': f"https://reddit.com{latest_post.permalink}"
+# Kodoani URL
+URL = "https://kodoani.com/"
+
+# Function to fetch the latest post from Kodoani
+def get_latest_kodoani_post():
+    response = requests.get(URL)
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Find the latest post (adjust selectors according to website structure)
+    latest_post = soup.find('div', class_='block-posts')  # Adjust this selector according to website structure
+    if not latest_post:
+        return None
+
+    # Extract the necessary information from the post
+    post_title = latest_post.find('h2').text.strip()
+    post_url = latest_post.find('a')['href']
+    post_image = latest_post.find('img')['src']
+
+    post_info = {
+        "title": post_title,
+        "url": post_url,
+        "image": post_image
     }
+    return post_info
 
-# Send the latest post to a specific Discord channel
-@bot.command(name='fetch_unixporn')
-async def fetch_unixporn(ctx):
-    post = await get_latest_unixporn_post()
-    if post['image']:
-        embed = discord.Embed(title=post['title'], url=post['permalink'])
-        embed.set_image(url=post['image'])
-        await ctx.send(embed=embed)
-    else:
-        await ctx.send(f"Latest post: {post['title']} \n{post['permalink']}")
+# Check for new post every X minutes
+async def check_for_new_post():
+    last_post_url = None
 
-# Bot ready event
+    await bot.wait_until_ready()
+    channel = bot.get_channel(CHANNEL_ID)
+    
+    while True:
+        latest_post = get_latest_kodoani_post()
+        
+        if latest_post and latest_post['url'] != last_post_url:
+            # New post detected, send it to the channel
+            last_post_url = latest_post['url']
+            embed = discord.Embed(title=latest_post['title'], url=latest_post['url'], description="New post on Kodoani!")
+            embed.set_image(url=latest_post['image'])
+
+            await channel.send(embed=embed)
+        
+        # Wait for 10 minutes before checking again
+        await asyncio.sleep(20)
+
+# Event when the bot is ready
 @bot.event
 async def on_ready():
-    print(f'Logged in as {bot.user.name}')
-    channel = bot.get_channel(1291045191687475230)
-    
-    # Periodically fetch and post the latest Unixporn post every 10 minutes
-    while True:
-        post = await get_latest_unixporn_post()
-        if post['image']:
-            embed = discord.Embed(title=post['title'], url=post['permalink'])
-            embed.set_image(url=post['image'])
-            await channel.send(embed=embed)
-        else:
-            await channel.send(f"Latest post: {post['title']} \n{post['permalink']}")
-        await asyncio.sleep(60)  # Wait for 10 minutes
+    print(f'Bot is ready and logged in as {bot.user}')
+    bot.loop.create_task(check_for_new_post())
+
+# Run tke sure your DISCORD_TOKEN is set in environment variables
+
 
 # Run the bot with the token
 bot.run(os.getenv('UNIXPORN_TOKEN'))

@@ -1,7 +1,6 @@
 import discord, asyncio, aiohttp, os
 import pandas as pd
 from discord.ext import commands
-import praw
 
 anime_data = pd.read_csv('anime.csv')
 

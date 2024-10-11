@@ -16,7 +16,7 @@
   <a href="#CMD"><kbd> <br> CMD <br> </kbd></a>&ensp;&ensp;
   <a href="#SERVICE"><kbd> <br> SERVICE <br> </kbd></a>&ensp;&ensp;
   <a href="#PRIVACY"><kbd> <br> PRIVACY <br> </kbd></a>&ensp;&ensp;
-  <a href="https://discord.com/oauth2/authorize?client_id=1289528997088067606&permissions=2048&integration_type=0&scope=bot"><kbd> <br> INVITE BOT <br> </kbd></a>&ensp;&ensp;
+  <a href="https://discord.com/oauth2/authorize?client_id=1289528997088067606&permissions=2048&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.com%2Foauth2%2Fauthorize%3Fclient_id%3D1289528997088067606%26permissions%3D8%26integration_type%3D0%26scope%3Dbot&integration_type=0&scope=bot+applications.commands.permissions.update"><kbd> <br> INVITE BOT <br> </kbd></a>&ensp;&ensp;
   <a href="https://discord.gg/te5eGwJZMU"><kbd> <br> Discord <br> </kbd></a>
 
   </div><br><br>

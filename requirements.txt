@@ -3,4 +3,5 @@ asyncio
 pandas
 flask
 requests
+google-generativeai
 

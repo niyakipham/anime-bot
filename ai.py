@@ -175,61 +175,11 @@ async def aneko(ctx):
             else:
                 await ctx.send("Couldn't fetch an anime image at the moment, try again later!")
 
-@bot.command()
-async def hello(ctx):
-    await ctx.send(f"Hello, {ctx.author.mention}! bạn vui lòng sử dụng câu lệnh !hlp để được trai nghiệm bot tốt nhất có thể")
-
-#
-
-@bot.command()
-async def hlp(ctx):
-    embed = discord.Embed(
-        title="Help Command",
-        description="SAU ĐÂY LÀ MỘT SỐ LỆNH CỦA BOT ANIME:",
-        color=discord.Color.blue()
-    )
-    embed.add_field(name="!hlp", value="Gợi ý lệnh", inline=False)
-    embed.add_field(name="!anime", value="Tìm thông tin về một bộ anime", inline=False)
-    embed.add_field(name="!img", value="Ảnh anime ngẫu nhiên", inline=False)
-    embed.add_field(name="!hello", value="Chào mừng, khi bạn cần tư vấn", inline=False)
-    
-    await ctx.send(embed=embed)
-
-
-count = 0
-channel_id = 1291415595488903238
-
-@bot.command()
-async def startcount(ctx):
-    global count
-    count = 0  # Reset số đếm
-    await ctx.send("Bắt đầu đếm! Nhập số đầu tiên.")
-
-# Lắng nghe tin nhắn trong kênh để đếm số
-@bot.event
-async def on_message(message):
-    global count
-
-    if message.author.bot:  # Không phản hồi bot khác
-        return
-
-    if message.channel.id == channel_id:  # Chỉ đếm trong kênh cụ thể
-        try:
-            # Kiểm tra xem tin nhắn có phải là số tiếp theo không
-            num = int(message.content)
-            if num == count + 1:
-                count += 1
-                await message.channel.send(f"Đã đếm đến {count}")
-            else:
-                await message.channel.send(f"Số tiếp theo phải là {count + 1}!")
-        except ValueError:
-            await message.channel.send("Vui lòng nhập một số hợp lệ!")
-
-    # Đừng quên gọi on_message từ lớp cha để các lệnh khác vẫn hoạt động
-    await bot.process_commands(message)
 
 
 #--------------------------------------------------------------
+
+CHANNEL_ID = 1295014200967561328
 
 sfw_categories = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"]
 

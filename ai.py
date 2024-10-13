@@ -1,6 +1,6 @@
 import discord, aiohttp, os
 import pandas as pd
-from discord.ext import commands
+from discord.ext import commands, tasks
 import google.generativeai as genai
 import requests
 import asyncio

@@ -1,8 +1,10 @@
-import discord, asyncio, aiohttp, os
+import discord, aiohttp, os
 import pandas as pd
 from discord.ext import commands
 import google.generativeai as genai
-
+import requests
+import asyncio
+import random
 anime_data = pd.read_csv('anime.csv')
 
 intents = discord.Intents.default()
@@ -229,64 +231,126 @@ async def on_message(message):
 
 #--------------------------------------------------------------
 
-genai.configure(api_key='AIzaSyAWfHq_eeR82EB4pdAsxYRS6HFlsAaDaeE')
-DISCORD_MAX_MESSAGE_LENGTH=2000
-PLEASE_TRY_AGAIN_ERROR_MESSAGE='There was an issue with your question please try again.. '
+# ID kênh mặc định để gửi ảnh
+WAIFU_ID = 1295014200967561328  # Thay thế bằng ID kênh của bạn
+NEKO_ID = 1295014835389726783
+KISS_ID  = 1295014949189582930
+SHINOBU = 1295019163076530319
+# Danh sách các loại ảnh (sfw)
+awaifu = ["waifu"]
+aneko = ["neko"]
+akis = ["kiss"]
+ashinobu = ["shinobu"]
 
-class GeminiAgent(commands.Cog):
 
-    def __init__(self,bot):
-        self.bot = bot
-        self.model = genai.GenerativeModel('gemini-pro')
 
-    @commands.Cog.listener()
-    async def on_message(self,msg):
-        try:
-            if msg.content == "ping gemini-agent":
-                await msg.channel.send("Agent is connected..")
-            elif 'Direct Message' in str(msg.channel) and not msg.author.bot:
-                response = self.gemini_generate_content(msg.content)
-                dmchannel = await msg.author.create_dm()
-                await self.send_message_in_chunks(dmchannel,response) 
-        except Exception as e:
-            await msg.channel.send(PLEASE_TRY_AGAIN_ERROR_MESSAGE + str(e))
 
-    @commands.command()
-    async def query(self,ctx,question):
-        try:
-            response = self.gemini_generate_content(question)
-            await self.send_message_in_chunks(ctx,response)
-        except Exception as e:
-            await ctx.send(PLEASE_TRY_AGAIN_ERROR_MESSAGE + str(e))
-
-    @commands.command()
-    async def pm(self,ctx):
-        dmchannel = await ctx.author.create_dm()
-        await dmchannel.send('Hi how can I help you today?')
-
-    def gemini_generate_content(self,content):
-        try:
-            response = self.model.generate_content(content,stream=True)
-            return response
-        except Exception as e:
-            return PLEASE_TRY_AGAIN_ERROR_MESSAGE + str(e)
+@tasks.loop(seconds=20)
+async def send_waifu_image():
+    try:
+        # Chọn ngẫu nhiên một loại ảnh
+        category = random.choice(ashinobu)
         
-    async def send_message_in_chunks(self,ctx,response):
-        message = ""
-        for chunk in response:
-            message += chunk.text
-            if len(message) > DISCORD_MAX_MESSAGE_LENGTH:
-                extraMessage = message[DISCORD_MAX_MESSAGE_LENGTH:]
-                message = message[:DISCORD_MAX_MESSAGE_LENGTH]
-                await ctx.send(message)
-                message = extraMessage
-        if len(message) > 0:
-            while len(message) > DISCORD_MAX_MESSAGE_LENGTH:
-                extraMessage = message[DISCORD_MAX_MESSAGE_LENGTH:]
-                message = message[:DISCORD_MAX_MESSAGE_LENGTH]
-                await ctx.send(message)
-                message = extraMessage
-            await ctx.send(message)
+        # Gọi API để lấy URL ảnh
+        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
+        response.raise_for_status() # Kiểm tra lỗi HTTP
+        image_url = response.json()["url"]
 
+        # Lấy kênh mặc định
+        aashinobu = bot.get_channel(SHINOBU)
+        if aashinobu is None:
+            print(f"Không tìm thấy kênh có ID {SHINOBU}")
+            return
+        
+        # Gửi ảnh
+        await aashinobu.send(image_url)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Lỗi khi gọi API: {e}")
+    except Exception as e:
+        print(f"Lỗi khác: {e}")
+
+
+@tasks.loop(seconds=20)
+async def send_waifu_image():
+    try:
+        # Chọn ngẫu nhiên một loại ảnh
+        category = random.choice(akis)
+        
+        # Gọi API để lấy URL ảnh
+        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
+        response.raise_for_status() # Kiểm tra lỗi HTTP
+        image_url = response.json()["url"]
+
+        # Lấy kênh mặc định
+        aakis = bot.get_channel(KISS_ID)
+        if aakis is None:
+            print(f"Không tìm thấy kênh có ID {KISS_ID}")
+            return
+        
+        # Gửi ảnh
+        await aakis.send(image_url)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Lỗi khi gọi API: {e}")
+    except Exception as e:
+        print(f"Lỗi khác: {e}")
+
+#-----------------------------------
+@tasks.loop(seconds=20)
+async def send_waifu_image():
+    try:
+        # Chọn ngẫu nhiên một loại ảnh
+        category = random.choice(aneko)
+        
+        # Gọi API để lấy URL ảnh
+        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
+        response.raise_for_status() # Kiểm tra lỗi HTTP
+        image_url = response.json()["url"]
+
+        # Lấy kênh mặc định
+        aaneko = bot.get_channel(NEKO_ID)
+        if aaneko is None:
+            print(f"Không tìm thấy kênh có ID {NEKO_ID}")
+            return
+        
+        # Gửi ảnh
+        await aaneko.send(image_url)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Lỗi khi gọi API: {e}")
+    except Exception as e:
+        print(f"Lỗi khác: {e}")
+
+#-----------------------------------
+@tasks.loop(seconds=20)
+async def send_waifu_image():
+    try:
+        # Chọn ngẫu nhiên một loại ảnh
+        category = random.choice(awaifu)
+        
+        # Gọi API để lấy URL ảnh
+        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
+        response.raise_for_status() # Kiểm tra lỗi HTTP
+        image_url = response.json()["url"]
+
+        # Lấy kênh mặc định
+        aawaifu = bot.get_channel(WAIFU_ID)
+        if aawaifu is None:
+            print(f"Không tìm thấy kênh có ID {WAIFU_ID}")
+            return
+        
+        # Gửi ảnh
+        await aawaifu.send(image_url)
+
+    except requests.exceptions.RequestException as e:
+        print(f"Lỗi khi gọi API: {e}")
+    except Exception as e:
+        print(f"Lỗi khác: {e}")
+
+@bot.event
+async def on_ready():
+    print(f"{bot.user} đã kết nối!")
+    send_waifu_image.start() # Bắt đầu task
 
 bot.run(os.getenv('DISCORD_TOKEN'))

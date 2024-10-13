@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands, tasks
 import requests
 import asyncio
-import random
+import random, os
 
 # Thay thế bằng token bot của bạn
 

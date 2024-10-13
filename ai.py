@@ -231,25 +231,16 @@ async def on_message(message):
 
 #--------------------------------------------------------------
 
-# ID kênh mặc định để gửi ảnh
-WAIFU_ID = 1295014200967561328  # Thay thế bằng ID kênh của bạn
-NEKO_ID = 1295014835389726783
-KISS_ID  = 1295014949189582930
-SHINOBU = 1295019163076530319
-# Danh sách các loại ảnh (sfw)
-awaifu = ["waifu"]
-aneko = ["neko"]
-akis = ["kiss"]
-ashinobu = ["shinobu"]
+sfw_categories = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry", "hug", "awoo", "kiss", "lick", "pat", "smug", "bonk", "yeet", "blush", "smile", "wave", "highfive", "handhold", "nom", "bite", "glomp", "slap", "kill", "kick", "happy", "wink", "poke", "dance", "cringe"]
 
-
+bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
 
 @tasks.loop(seconds=20)
 async def send_waifu_image():
     try:
         # Chọn ngẫu nhiên một loại ảnh
-        category = random.choice(ashinobu)
+        category = random.choice(sfw_categories)
         
         # Gọi API để lấy URL ảnh
         response = requests.get(f"https://api.waifu.pics/sfw/{category}")
@@ -257,96 +248,19 @@ async def send_waifu_image():
         image_url = response.json()["url"]
 
         # Lấy kênh mặc định
-        aashinobu = bot.get_channel(SHINOBU)
-        if aashinobu is None:
-            print(f"Không tìm thấy kênh có ID {SHINOBU}")
+        channel = bot.get_channel(CHANNEL_ID)
+        if channel is None:
+            print(f"Không tìm thấy kênh có ID {CHANNEL_ID}")
             return
         
         # Gửi ảnh
-        await aashinobu.send(image_url)
+        await channel.send(image_url)
 
     except requests.exceptions.RequestException as e:
         print(f"Lỗi khi gọi API: {e}")
     except Exception as e:
         print(f"Lỗi khác: {e}")
 
-
-@tasks.loop(seconds=20)
-async def send_waifu_image():
-    try:
-        # Chọn ngẫu nhiên một loại ảnh
-        category = random.choice(akis)
-        
-        # Gọi API để lấy URL ảnh
-        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
-        response.raise_for_status() # Kiểm tra lỗi HTTP
-        image_url = response.json()["url"]
-
-        # Lấy kênh mặc định
-        aakis = bot.get_channel(KISS_ID)
-        if aakis is None:
-            print(f"Không tìm thấy kênh có ID {KISS_ID}")
-            return
-        
-        # Gửi ảnh
-        await aakis.send(image_url)
-
-    except requests.exceptions.RequestException as e:
-        print(f"Lỗi khi gọi API: {e}")
-    except Exception as e:
-        print(f"Lỗi khác: {e}")
-
-#-----------------------------------
-@tasks.loop(seconds=20)
-async def send_waifu_image():
-    try:
-        # Chọn ngẫu nhiên một loại ảnh
-        category = random.choice(aneko)
-        
-        # Gọi API để lấy URL ảnh
-        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
-        response.raise_for_status() # Kiểm tra lỗi HTTP
-        image_url = response.json()["url"]
-
-        # Lấy kênh mặc định
-        aaneko = bot.get_channel(NEKO_ID)
-        if aaneko is None:
-            print(f"Không tìm thấy kênh có ID {NEKO_ID}")
-            return
-        
-        # Gửi ảnh
-        await aaneko.send(image_url)
-
-    except requests.exceptions.RequestException as e:
-        print(f"Lỗi khi gọi API: {e}")
-    except Exception as e:
-        print(f"Lỗi khác: {e}")
-
-#-----------------------------------
-@tasks.loop(seconds=20)
-async def send_waifu_image():
-    try:
-        # Chọn ngẫu nhiên một loại ảnh
-        category = random.choice(awaifu)
-        
-        # Gọi API để lấy URL ảnh
-        response = requests.get(f"https://api.waifu.pics/sfw/{category}")
-        response.raise_for_status() # Kiểm tra lỗi HTTP
-        image_url = response.json()["url"]
-
-        # Lấy kênh mặc định
-        aawaifu = bot.get_channel(WAIFU_ID)
-        if aawaifu is None:
-            print(f"Không tìm thấy kênh có ID {WAIFU_ID}")
-            return
-        
-        # Gửi ảnh
-        await aawaifu.send(image_url)
-
-    except requests.exceptions.RequestException as e:
-        print(f"Lỗi khi gọi API: {e}")
-    except Exception as e:
-        print(f"Lỗi khác: {e}")
 
 @bot.event
 async def on_ready():

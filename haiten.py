@@ -13,7 +13,7 @@ haiten = ["waifu", "neko" "trap", "blowjob"]
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
-@tasks.loop(seconds=20)
+@tasks.loop(seconds=60)
 async def send_waifu_image():
     try:
         # Chọn ngẫu nhiên một loại ảnh

@@ -188,7 +188,7 @@ sfw_categories = ["waifu", "neko", "shinobu", "megumin", "bully", "cuddle", "cry
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
 
-@tasks.loop(seconds=20)
+@tasks.loop(seconds=60)
 async def send_waifu_image():
     try:
         # Chọn ngẫu nhiên một loại ảnh

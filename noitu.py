@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 is_game_active = False
 last_word = ""
 players = []
-default_channel_id = 1292292057490264085  # Thay bằng ID kênh mặc định của bạn
+default_channel_id = 1295303175393509428  # Thay bằng ID kênh mặc định của bạn
 
 
 @bot.event

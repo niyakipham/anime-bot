@@ -1,8 +1,17 @@
-import discord
 from discord.ext import commands, tasks
 import requests
 import asyncio
 import random, os
+from discord import Client
+
+def get_aiohttp_client():
+    from aiohttp import ClientSession  # Import aiohttp only when needed
+    return ClientSession()
+
+async def some_function(self, ctx):
+    async with get_aiohttp_client() as session:
+        # Use the session here
+        pass
 
 # Thay thế bằng token bot của bạn
 

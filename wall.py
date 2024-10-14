@@ -1,16 +1,7 @@
-import discord, aiohttp, os
+import discord, asyncio, aiohttp, os
 import pandas as pd
 from discord.ext import commands
-from discord import Client
-
-def get_aiohttp_client():
-    from aiohttp import ClientSession  # Import aiohttp only when needed
-    return ClientSession()
-
-async def some_function(self, ctx):
-    async with get_aiohttp_client() as session:
-        # Use the session here
-        pass
+from .client import *
 
 TOKEN = os.getenv('DISCORD_TOKEN')
 
@@ -25,7 +16,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 CHANNEL_IDS = [1295014200967561328, 1295019163076530319, 1295293677828309032]  # WALL và MEME
 
 # ID của người dùng được phép gửi tin nhắn không phải ảnh
-ALLOWED_USER_IDS = [1295285744771924042, 1289528997088067606, 1292857374616457281] # Thay thế bằng ID người dùng thực tế
+ALLOWED_USER_IDS = [1295285744771924042, 1289528997088067606] # Thay thế bằng ID người dùng thực tế
 
 @bot.event
 async def on_message(message):

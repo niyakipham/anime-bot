@@ -1,20 +1,12 @@
-import aiohttp, os
+import aiohttp, os, discord
 import pandas as pd
 from discord.ext import commands, tasks
 import google.generativeai as genai
 import requests
 import asyncio
 import random
-from discord import Client
+from .client import *
 
-def get_aiohttp_client():
-    from aiohttp import ClientSession  # Import aiohttp only when needed
-    return ClientSession()
-
-async def some_function(self, ctx):
-    async with get_aiohttp_client() as session:
-        # Use the session here
-        pass
 
 anime_data = pd.read_csv('anime.csv')
 

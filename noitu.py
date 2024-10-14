@@ -1,16 +1,8 @@
-import os
+import os, discord
 from discord.ext import commands
-from discord import Client
+from .client import *
 
-def get_aiohttp_client():
-    from aiohttp import ClientSession  # Import aiohttp only when needed
-    return ClientSession()
 
-async def some_function(self, ctx):
-    async with get_aiohttp_client() as session:
-        # Use the session here
-        pass
-        
 # Khởi tạo intents
 intents = discord.Intents.default()
 intents.message_content = True

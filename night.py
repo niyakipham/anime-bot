@@ -37,6 +37,7 @@ async def send_wallpaper():
                 return
             
             # Gửi ảnh bằng embed để hiển thị đẹp hơn
+            embed = discord.Embed(title="Hình decor ngẫu nhiên từ Pexels")
             embed.set_image(url=image_url)
             await channel.send(embed=embed)
 

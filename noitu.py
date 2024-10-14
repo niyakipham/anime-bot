@@ -1,7 +1,5 @@
 import os, discord
 from discord.ext import commands
-from .client import *
-
 
 # Khởi tạo intents
 intents = discord.Intents.default()

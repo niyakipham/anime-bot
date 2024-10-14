@@ -2,11 +2,6 @@ from discord.ext import commands, tasks
 import requests, discord
 import random
 import os
-from .client import *
-
-
-# Token bot Discord của bạn
-TOKEN = os.getenv("DISCORD_TOKEN")
 
 # ID kênh bạn muốn gửi ảnh
 CHANNEL_ID = 1295293677828309032 # Thay thế bằng ID kênh của bạn
@@ -67,4 +62,4 @@ async def on_ready():
 
 
 
-bot.run(os.getenv('NT'))
+bot.run(os.getenv('NT_TOKEN'))

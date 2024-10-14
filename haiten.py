@@ -2,10 +2,6 @@ from discord.ext import commands, tasks
 import requests, discord
 import asyncio
 import random, os
-from .client import *
-
-
-# Thay thế bằng token bot của bạn
 
 # ID kênh mặc định để gửi ảnh
 

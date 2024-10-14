@@ -5,7 +5,6 @@ import google.generativeai as genai
 import requests
 import asyncio
 import random
-from .client import *
 
 
 anime_data = pd.read_csv('anime.csv')

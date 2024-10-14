@@ -10,7 +10,7 @@ CHANNEL_ID = 1295293677828309032 # Thay thế bằng ID kênh của bạn
 PEXELS_API_KEY = 'ZUNPocwnNyEFmqeSiJmLaoGZ7JjQWRtlXFKP0h2QimRt86QQzj81VYX4' # Lưu API key trong biến môi trường
 
 # Từ khóa tìm kiếm ảnh nền
-SEARCH_QUERY = "Night Time"
+SEARCH_QUERY = "Decor"
 
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
@@ -37,7 +37,6 @@ async def send_wallpaper():
                 return
             
             # Gửi ảnh bằng embed để hiển thị đẹp hơn
-            embed = discord.Embed(title="Hình nền ngẫu nhiên từ Pexels")
             embed.set_image(url=image_url)
             await channel.send(embed=embed)
 

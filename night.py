@@ -9,8 +9,7 @@ from discord.ext import tasks
 
 WALL = 1295293677828309032
 # Tạo client Discord với prefix và intents đầy đủ quyền
-bot = discord.Bot(intents=discord.Intents.all())
-
+bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 # Sự kiện khi bot đã sẵn sàng
 @bot.event
 async def on_ready():

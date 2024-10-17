@@ -5,5 +5,5 @@ flask
 requests
 aiohttp
 google-generativeai
-nekos
+nekos.py
 

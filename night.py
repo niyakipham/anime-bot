@@ -1,63 +1,38 @@
-from discord.ext import commands, tasks
-import requests, discord
-import random
+import discord
+import nekos
 import os
-
-# ID kênh bạn muốn gửi ảnh
-CHANNEL_ID = 1295293677828309032 # Thay thế bằng ID kênh của bạn
-
-# API Key Pexels của bạn
-PEXELS_API_KEY = 'ZUNPocwnNyEFmqeSiJmLaoGZ7JjQWRtlXFKP0h2QimRt86QQzj81VYX4' # Lưu API key trong biến môi trường
-
-# Từ khóa tìm kiếm ảnh nền
-SEARCH_QUERY = "Decor"
-
-bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
-
-@tasks.loop(seconds=60)  # Mặc định là 1 giờ (3600 giây), thay đổi nếu cần
-async def send_wallpaper():
-    try:
-        # Gọi API Pexels
-        headers = {"Authorization": PEXELS_API_KEY}
-        params = {"query": SEARCH_QUERY, "per_page": 100000} # Lấy tối đa 50 ảnh
-        response = requests.get("https://api.pexels.com/v1/search", headers=headers, params=params)
-        response.raise_for_status() # Kiểm tra lỗi HTTP
-        data = response.json()
-
-        # Chọn ngẫu nhiên một ảnh
-        if data["photos"]:
-            photo = random.choice(data["photos"])
-            image_url = photo["src"]["original"] # Sử dụng URL ảnh gốc
+from discord.ext import tasks
 
 
-            # Lấy kênh
-            channel = bot.get_channel(CHANNEL_ID)
-            if not channel:
-                print(f"Không tìm thấy kênh có ID {CHANNEL_ID}")
-                return
-            
-            # Gửi ảnh bằng embed để hiển thị đẹp hơn
-            embed = discord.Embed(title="Hình decor ngẫu nhiên từ Pexels")
-            embed.set_image(url=image_url)
-            await channel.send(embed=embed)
+# ID của kênh Discord nơi bạn muốn gửi ảnh định kỳ
+  # Thay bằng ID của kênh Discord bạn muốn gửi ảnh
 
+WALL = 1295293677828309032
+# Tạo client Discord với prefix và intents đầy đủ quyền
+client = discord.Client(intents=discord.Intents.all())
 
-
-        else:
-            print("Không tìm thấy ảnh nào.")
-
-
-    except requests.exceptions.RequestException as e:
-        print(f"Lỗi khi gọi API Pexels: {e}")
-    except Exception as e:
-        print(f"Lỗi khác: {e}")
-
-
-
-@bot.event
+# Sự kiện khi bot đã sẵn sàng
+@client.event
 async def on_ready():
-    print(f"{bot.user} đã kết nối!")
-    send_wallpaper.start()
+    print(f'Bot đã đăng nhập với tên: {client.user}')
+    # Khởi động task gửi ảnh mỗi 1 phút
+    send_image_task.start()
+
+# Sự kiện khi bot nhận tin nhắn
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
+
+@tasks.loop(minutes=1)
+async def send_image_task():
+    # Kiểm tra nếu bot đã sẵn sàng
+    if client.is_ready():
+        # Lấy kênh bằng ID
+        channel = client.get_channel(TARGET_CHANNEL_ID)
+        if channel:
+            neko_image_url = nekos.img('wallpaper')  # Lấy ảnh từ endpoint 'neko'
+            await channel.send(f"Tự động gửi ảnh mỗi phút:\n{neko_image_url}")
 
 
 

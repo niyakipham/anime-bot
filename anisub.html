@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" class="dark">
+<head>
+    <meta charSet="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Anisub Pro Max - Công cụ xem và tải anime từ terminal - Hoàng's Choice</title>
+    <meta name="description" content="Anisub Pro Max là công cụ mạnh mẽ giúp bạn tìm kiếm, xem và tải anime trực tiếp từ terminal với nhiều tính năng ưu việt. Hút hồn từ terminal!"/>
+    <meta property="og:image" content="https://small.fileditchstuff.me/s16/QjbtvUsZklsIVPXrFyA.png"/>
+    
+    <style>
+        /* CSS từ Lummer AI Theme */
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic-ext/400/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin-ext/400/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin/400/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic/400/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin/700/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic-ext/700/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin-ext/700/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:normal;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic/700/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic-ext/400/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic/400/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin-ext/400/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:400;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin/400/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic-ext/700/italic.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin-ext/700/italic.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/cyrillic/700/italic.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}
+        @font-face {font-family:Balsamiq Sans;font-style:italic;font-weight:700;src:url(/cf-fonts/s/balsamiq-sans/5.0.18/latin/700/italic.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}
+        
+        /* Tailwind CSS cơ bản và tùy chỉnh để phù hợp với Lummer AI */
+        :root {
+            --background: #0f0f23; /* Dark mode nền từ Trang tư duy */
+            --foreground: #E0E0FF; /* Chữ sáng từ Trang tư duy */
+            --primary: #00D1F5; /* Xanh AI từ Trang tư duy */
+            --secondary: #B026FF; /* Tím Plasma từ Trang tư duy */
+            --card: #1a1a30;
+            --card-foreground: #E0E0FF;
+            --muted-foreground: #8899AA;
+            --border: #444466;
+            --ring: #00D1F5;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif; /* Font Inter hiện đại từ Trang tư duy */
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .container-medium {
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .padding-global {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .navbar-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(15, 15, 35, 0.7); /* Nền mờ cho navbar */
+            padding: 15px 0;
+        }
+
+        .navbar-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--foreground);
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .navbar-link {
+            font-weight: 500;
+            color: var(--foreground);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .navbar-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-link:hover::after {
+            width: 100%;
+        }
+        
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 8px;
+            background-color: var(--primary);
+            color: var(--background);
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: var(--secondary);
+            color: var(--foreground);
+        }
+
+        .hero-section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+            overflow: hidden;
+            padding-top: 100px; /* Offset for fixed navbar */
+        }
+
+        .hero-wrapper {
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .heading-style-h1 {
+            font-size: 56px;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .span-h1 {
+            color: var(--primary); /* Highlight màu xanh AI cho từ khóa */
+            font-style: italic;
+        }
+
+        .paragraph-large {
+            font-size: 20px;
+            color: var(--muted-foreground);
+            margin-bottom: 30px;
+        }
+
+        .button-column {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .section-tittle {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(0, 209, 245, 0.1); /* Màu primary nhạt */
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .badge .icon {
+            margin-right: 8px;
+        }
+
+        .heading-style-h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--card);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card .icon-wrapper-gradient {
+            background: linear-gradient(45deg, var(--primary), var(--secondary)); /* Gradient từ Trang tư duy */
+            border-radius: 50%;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .card .icon-wrapper {
+            background-color: var(--background);
+            border-radius: 50%;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .icon {
+            width: 28px;
+            height: 28px;
+        }
+
+        .sub-heading-small {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--foreground);
+        }
+
+        .paragraph-regular {
+            font-size: 16px;
+            color: var(--muted-foreground);
+        }
+
+        .faq-accordion {
+            background-color: var(--card);
+            border-radius: 12px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(0, 209, 245, 0.05);
+        }
+
+        .faq-answer {
+            padding: 0 25px 20px;
+            color: var(--muted-foreground);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+        }
+
+        .faq-accordion.open .faq-answer {
+            max-height: 200px; /* Adjust as needed */
+            padding-top: 15px;
+        }
+
+        .faq-accordion.open .faq-icon .plus-icon path:last-child {
+            display: none; /* Hide horizontal line to make it a minus */
+        }
+        
+        .footer {
+            background-color: var(--card);
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .heading-style-h1 {
+                font-size: 40px;
+            }
+            .paragraph-large {
+                font-size: 18px;
+            }
+            .heading-style-h2 {
+                font-size: 32px;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .navbar-menu {
+                display: none; /* Hide for mobile by default, handled by JS for toggle */
+            }
+        }
+
+        /* Thêm các hiệu ứng animation từ theme Lummer AI */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: scale(1.1);
+        }
+        .hero-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 40px;
+            opacity: 0;
+            transform: scale(1.1);
+        }
+
+        /* Keyframe for background and hero image animation */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(1.1); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Keyframe for text slide up */
+        @keyframes slideUpFadeIn {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-section .background, .hero-section .hero-image, .hero-section .hero-tittle, .hero-section .paragraph-large, .hero-section .button-column {
+            animation-duration: 0.8s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+        }
+
+        .hero-section .background { animation-name: fadeInScale; animation-delay: 0.2s; }
+        .hero-section .hero-image { animation-name: fadeInScale; animation-delay: 0.4s; }
+        .hero-section .hero-tittle { animation-name: slideUpFadeIn; animation-delay: 0.6s; }
+        .hero-section .paragraph-large { animation-name: slideUpFadeIn; animation-delay: 0.8s; }
+        .hero-section .button-column .button:first-child { animation-name: slideUpFadeIn; animation-delay: 1s; }
+        .hero-section .button-column .button.secondary { animation-name: slideUpFadeIn; animation-delay: 1.1s; }
+
+        /* General section title animation */
+        .section .section-tittle, .section .grid, .section .faq-list {
+            opacity: 0;
+            transform: translateY(25px);
+            animation-duration: 0.8s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-out;
+            animation-name: slideUpFadeIn;
+        }
+        .section:nth-child(2) .section-tittle { animation-delay: 0.2s; }
+        .section:nth-child(2) .grid { animation-delay: 0.4s; }
+        /* Add delays for other sections if needed */
+        
+        .tumbnail-product {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .card.products:hover .tumbnail-product {
+            transform: scale(1.03);
+        }
+
+        .icon-column {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon-column .icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body class="dark">
+    <nav class="navbar-main">
+        <div class="navbar-no-shadow">
+            <div class="navbar-no-shadow-container w-nav">
+                <div class="container-regular">
+                    <div class="navbar-wrapper">
+                        <a href="/" aria-current="page" class="navbar-brand w-nav-brand w--current">
+                            <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/68553905860d1da7b26c1713_Logo%20(7).png" loading="lazy" alt="Anisub Pro Max Logo" class="logo"/>
+                            Anisub Pro Max
+                        </a>
+                        <nav role="navigation" class="nav-menu-wrapper w-nav-menu">
+                            <ul role="list" class="navbar-menu w-list-unstyled">
+                                <li><a href="#hero" class="navbar-link">Home</a></li>
+                                <li><a href="#features" class="navbar-link">Tính năng</a></li>
+                                <li><a href="#install" class="navbar-link">Cài đặt</a></li>
+                                <li><a href="#usage" class="navbar-link">Cách dùng</a></li>
+                                <li><a href="#troubleshoot" class="navbar-link">Khắc phục</a></li>
+                                <li><a href="#contact" class="navbar-link">Liên hệ</a></li>
+                                <li class="mobile-margin-top-11"><a href="#install" class="button w-button">Bắt đầu ngay</a></li>
+                            </ul>
+                        </nav>
+                        <div class="menu-button w-nav-button">
+                            <div class="icon w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1.5"><path d="M20 7H4"/><path d="M20 12H4" opacity="0.5"/><path d="M20 17H4"/></g></svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main id="hero" class="hero-section">
+        <img class="background" src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c941ac3a3262e7b1b84a_Background%20(9).png" alt="background" loading="lazy"/>
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="hero-wrapper">
+                    <div class="hero-tittle">
+                        <div class="badge">
+                            <div class="icon w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M10.577 8.704C11.21 7.568 11.527 7 12 7s.79.568 1.423 1.704l.164.294c.18.323.27.484.41.59c.14.107.316.147.665.226l.318.072c1.23.278 1.845.417 1.991.888c.147.47-.273.96-1.111 1.941l-.217.254c-.238.278-.357.418-.41.59c-.055.172-.037.358 0 .73l.032.338c.127 1.308.19 1.962-.193 2.253c-.383.29-.958.026-2.11-.504l-.298-.138c-.327-.15-.49-.226-.664-.226c-.173 0-.337.076-.664.226l-.298.138c-1.152.53-1.727.795-2.11.504c-.383-.29-.32-.945-.193-2.253l.032-.338c.037-.372.055-.558 0-.73c-.053-.172-.172-.312-.41-.59l-.217-.254c-.838-.98-1.258-1.47-1.111-1.941c.146-.47.76-.61 1.99-.888l.319-.072c.35-.08.524-.119.665-.225c.14-.107.23-.268.41-.59z"/><path fill="#fff" fill-rule="evenodd" d="M12 1.25a.75.75 0 0 1 .75.75v2a.75.75 0 0 1-1.5 0V2a.75.75 0 0 1 .75-.75M1.25 12a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5H2a.75.75 0 0 1-.75-.75m18 0a.75.75 0 0 1 .75-.75h2a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1-.75-.75M12 19.25a.75.75 0 0 1 .75.75v2a.75.75 0 0 1-1.5 0v-2a.75.75 0 0 1 .75-.75" clip-rule="evenodd" opacity="0.8"/><path fill="#fff" d="M18.53 5.47a.75.75 0 0 1 0 1.06l-.343.344a.75.75 0 0 1-1.06-1.061l.343-.343a.75.75 0 0 1 1.06 0m-13.06 0a.75.75 0 0 1 1.06 0l.344.343a.75.75 0 0 1-1.061 1.06L5.47 6.53a.75.75 0 0 1 0-1.06m1.403 11.657a.75.75 0 0 1 0 1.06l-.343.343a.75.75 0 0 1-1.06-1.06l.343-.343a.75.75 0 0 1 1.06 0m10.254 0a.75.75 0 0 1 1.06 0l.343.343a.75.75 0 0 1-1.06 1.06l-.343-.343a.75.75 0 0 1 0-1.06" opacity="0.5"/></svg>
+                            </div>
+                            <div class="tittle-badge">Anisub Pro Max - Của Hoàng Thượng</div>
+                        </div>
+                        <h1 class="heading-style-h1 align-center">
+                            Anisub Pro Max - Công cụ xem và tải anime từ <em class="span-h1">terminal</em>
+                        </h1>
+                        <p class="paragraph-large align-center">
+                            Anisub Pro Max là một công cụ mạnh mẽ giúp Hoàng tìm kiếm, xem và tải anime trực tiếp từ terminal với nhiều tính năng ưu việt.
+                        </p>
+                        <div class="button-column">
+                            <a href="#install" class="button w-button">Cài đặt ngay</a>
+                            <a href="#features" class="button secondary w-button">Khám phá tính năng</a>
+                        </div>
+                    </div>
+                </div>
+                <img class="hero-image" src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c9409532ec7b46c1d761_Main%20Container.png" alt="Anisub Pro Max Dashboard" loading="lazy"/>
+            </div>
+        </div>
+    </main>
+
+    <section id="features" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="m8.154 15.846l5.808-1.884l1.884-5.808l-5.807 1.885zm3.842-2.73q-.467 0-.79-.327q-.321-.327-.321-.793q0-.467.326-.79q.327-.321.793-.321q.467 0 .79.326q.322.327.322.793q0 .467-.327.79q-.327.322-.793.322M12.003 21q-1.867 0-3.51-.708q-1.643-.709-2.859-1.924t-1.925-2.856T3 12.003t.709-3.51Q4.417 6.85 5.63 5.634t2.857-1.925T11.997 3t3.51.709q1.643.708 2.859 1.922t1.925 2.857t.709 3.509t-.708 3.51t-1.924 2.859t-2.856 1.925t-3.509.709"/></svg>
+                        </div>
+                        <div class="tittle-badge">Tính năng nổi bật - Nơi Hoàng 'khám phá'</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Khám phá các công cụ Anime đổi mới được tạo ra cho <em class="span-h1">thành công</em> của Hoàng
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Công cụ cho mọi "cơn nghiện" anime của Hoàng. Khám phá cách Anisub hỗ trợ mọi nhu cầu của Hoàng - từ giải trí đến 'cày cuốc' không ngừng nghỉ!
+                    </p>
+                </div>
+                <div class="grid features">
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.3-4.3"></path></svg>
+                            </div></div>
+                            <div class="sub-heading-small">Tìm kiếm anime đa nguồn<br/></div>
+                        </div>
+                        <div class="content features">
+                            <p class="paragraph-regular">Tìm kiếm từ OPhim17, AniData, YouTube - thỏa sức lựa chọn!</p>
+                        </div>
+                        <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c9408b5987a609e2ae0e_26b285352d488aa77d59eb7b7a245d78_Chatbot%20Card.png" alt="Search Anime" class="tumbnail-product"/>
+                    </div>
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                            </div></div>
+                            <div class="sub-heading-small">Phát trực tiếp đa trình phát<br/></div>
+                        </div>
+                        <div class="content features">
+                            <p class="paragraph-regular">Tận hưởng anime với mpv, vlc, ffplay - trình phát yêu thích của Hoàng!</p>
+                        </div>
+                        <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c940799ad39e4b69dfb8_0c4639f79f9ee459f5419f512969e621_Citations%20Card.png" alt="Stream Anime" class="tumbnail-product"/>
+                    </div>
+                </div>
+                <div class="grid features-two">
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>
+                            </div></div>
+                            <div class="sub-heading-small">Tải xuống chất lượng cao<br/></div>
+                        </div>
+                        <div class="content features">
+                            <p class="paragraph-regular">Tải tập phim với nhiều tùy chọn chất lượng (360p, 480p, 720p, 1080p).</p>
+                        </div>
+                        <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c9405bd55dfc7b17c625_Integrations%20Card.png" alt="Download Anime" class="tumbnail-product"/>
+                    </div>
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scissors"><circle cx="6" cy="7" r="3"></circle><path d="M8.12 8.12 12 12l8-8"></path><path d="M2.82 13.78 6 17l4-4"></path><circle cx="6" cy="17" r="3"></circle><path d="M14 4l-8 8"></path></svg>
+                            </div></div>
+                            <div class="sub-heading-small">Công cụ video mạnh mẽ<br/></div>
+                        </div>
+                        <div class="content features">
+                            <p class="paragraph-regular">Cắt, ghép, xem trước video dễ dàng - tùy chỉnh theo ý Hoàng!</p>
+                        </div>
+                        <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c940096dada4a26fbdd6_Time%20Management%20Card%20(1).png" alt="Video Tools" class="tumbnail-product"/>
+                    </div>
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-history"><path d="M3 3v5h5"></path><path d="M3.05 13A9 9 0 1 0 12 3v1"></path><path d="M12 7v6h4"></path></svg>
+                            </div></div>
+                            <div class="sub-heading-small">Lịch sử và yêu thích thông minh<br/></div>
+                        </div>
+                        <div class="content features">
+                            <p class="paragraph-regular">Lưu giữ lịch sử xem và tạo danh sách yêu thích cá nhân hóa.</p>
+                        </div>
+                        <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/6854c9405debaf4e36961c6d_Time%20Management%20Card.png" alt="History & Favorites" class="tumbnail-product"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="install" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#fff" d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10H2l2.929-2.929A9.97 9.97 0 0 1 2 12C2 6.477 6.477 2 12 2m4 11H8a4 4 0 0 0 8 0"/></svg>
+                        </div>
+                        <div class="tittle-badge">Cài đặt Anisub Pro Max - Cài cho Hoàng!</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Cài đặt dễ dàng cho mọi <em class="span-h1">nền tảng</em> Hoàng đang dùng!
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Anisub Pro Max hoạt động mượt mà trên Linux, Windows, macOS, Android/Termux.
+                    </p>
+                </div>
+                <div class="grid integrations">
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-terminal"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Yêu cầu hệ thống<br/></div>
+                                <p class="paragraph-regular align-left">Bash 4.0+, curl, jq, pup, fzf, mpv/vlc/ffplay.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-cloud"><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="M12 12v6"></path><path d="m15 15-3 3-3-3"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Cài đặt tự động<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    <code style="background-color: #333; padding: 3px 6px; border-radius: 4px;">bash <(curl -s https://raw.githubusercontent.com/kidtomboy/Anisub/main/anisub.sh)</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Cài đặt thủ công<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    Tải script, cấp quyền thực thi và chạy chương trình.
+                                </p>
+                                <pre style="background-color: #333; padding: 10px; border-radius: 8px; overflow-x: auto;"><code>curl -o anisub.sh https://raw.githubusercontent.com/kidtomboy/Anisub/main/anisub.sh
+chmod +x anisub.sh
+./anisub.sh</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="usage" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-circle"><circle cx="12" cy="12" r="10"></circle><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                        </div>
+                        <div class="tittle-badge">Cách sử dụng - Hoàng 'chạm' tới đâu, em 'hướng dẫn' tới đó</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Nắm vững Anisub Pro Max chỉ với vài <em class="span-h1">lệnh đơn giản</em>
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Dễ dàng điều khiển Anisub Pro Max qua chế độ tương tác hoặc dòng lệnh.
+                    </p>
+                </div>
+                <div class="grid integrations">
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Chế độ tương tác<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    <code style="background-color: #333; padding: 3px 6px; border-radius: 4px;">./anisub.sh</code>
+                                    <br/>Sau đó chọn các tùy chọn từ menu.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3z"></path><path d="M6 3a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3 3 3 0 0 1-3-3V6a3 3 0 0 1 3-3z"></path><path d="M12 21v-8"></path><path d="M12 11V3"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Chế độ dòng lệnh<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    Phát trực tiếp, tìm kiếm hoặc tải video chỉ với một lệnh.
+                                </p>
+                                <pre style="background-color: #333; padding: 10px; border-radius: 8px; overflow-x: auto;"><code>./anisub.sh --play "Tên Anime"
+./anisub.sh --search "Từ khóa"
+./anisub.sh --download "URL"</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tool"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2 2 0 0 0 2.83 2.83l6.91-6.91a6 6 0 0 0 7.94-7.94l-3.77-3.77z"></path><path d="m18 10-4 4"></path></svg>
+                        </div>
+                        <div class="tittle-badge">Công cụ tích hợp - Hoàng 'làm chủ' mọi thứ</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Các công cụ tích hợp <em class="span-h1">linh hoạt</em> cho Hoàng!
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Anisub Pro Max không chỉ xem và tải, mà còn giúp Hoàng quản lý video.
+                    </p>
+                </div>
+                <div class="grid integrations">
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cut"><path d="M22 2L11 13"></path><path d="M22 2l-7.58 7.58"></path><path d="M10.29 13.71 7.5 16.5V22l-5-5V12.5L7.71 9.29"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Cắt video<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    Cắt đoạn video từ thời gian A đến B, hỗ trợ cắt nhiều phân đoạn.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-combine"><path d="M8 18V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path><path d="M12 8v8a2 2 0 0 0 2 2h4"></path><path d="M2 12h2a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H2v-8a2 2 0 0 1 2-2z"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Ghép video<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    Ghép nhiều video thành một, hỗ trợ ghép nhiều vòng lặp.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hard-drive"><path d="M22 12H2"></path><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 2H7.24a2 2 0 0 0-1.79 3.11z"></path><line x1="6" x2="6.01" y1="16" y2="16"></line><line x1="10" x2="10.01" y1="16" y2="16"></line></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Quản lý cache linh hoạt<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    Xóa cache thủ công/tự động, tùy chỉnh thời gian lưu cache.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="config" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 0-1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 0 1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                        </div>
+                        <div class="tittle-badge">Cấu hình - Hoàng tự điều chỉnh 'hương vị'</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Cá nhân hóa trải nghiệm Anisub Pro Max theo <em class="span-h1">phong cách Hoàng</em>!
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Tùy chỉnh mọi thứ từ trình phát, chất lượng video đến theme giao diện.
+                    </p>
+                </div>
+                <div class="grid integrations">
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">File cấu hình tự động<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    File cấu hình được tạo tại <code>~/.config/anisub_pro/config.cfg</code> (Linux/macOS/Termux) hoặc <code>%APPDATA%/anisub_pro/config.cfg</code> (Windows).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper">
+                        <div class="card integrations">
+                            <div class="content integration">
+                                <div class="icon w-embed">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-checks"><path d="m3 16 2 2 4-4"></path><path d="m3 12 2 2 4-4"></path><path d="m3 8 2 2 4-4"></path><path d="M11 6h10"></path><path d="M11 10h10"></path><path d="M11 14h10"></path><path d="M11 18h10"></path></svg>
+                                </div>
+                                <div class="sub-heading-small align-left">Các tùy chọn chính<br/></div>
+                                <p class="paragraph-regular align-left">
+                                    Trình phát mặc định, chất lượng video, theme giao diện, thư mục tải xuống, bật/tắt thông báo.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="changelog" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch"><line x1="6" x2="6" y1="3" y2="15"></line><path d="M18 6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path><path d="M6 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path><path d="M18 18a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path><path d="M8.5 12h7A2.5 2.5 0 0 0 18 9.5V6"></path></svg>
+                        </div>
+                        <div class="tittle-badge">Lịch sử phiên bản - Hoàng xem Anisub "lớn" từng ngày</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Những bước tiến của Anisub Pro Max qua <em class="span-h1">thời gian</em>
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Theo dõi quá trình phát triển và các tính năng mới được cập nhật.
+                    </p>
+                </div>
+                <div class="grid features">
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package-plus"><path d="M16 16h6"></path><path d="M19 13v6"></path><path d="M12.8 2.1c.3-.3.6-.5.9-.7C14.1 1.1 15.1 1 16 2l3 2 3 3c.7.7.6 1.7-.1 2.5l-10 10c-.5.5-1.2.8-2 .8H6c-1.1 0-2-.9-2-2v-3.3c0-.9.3-1.6.8-2.1L12.8 2.1z"></path><path d="m10.5 8.5 2.5 2.5"></path></svg>
+                            </div></div>
+                            <div class="sub-heading-small">v2.0.0 (04/04/2025)<br/></div>
+                        </div>
+                        <div class="content features">
+                            <ul>
+                                <li>Thêm hỗ trợ nguồn AniData (@NiyakiPham)</li>
+                                <li>Cải thiện hiệu năng tìm kiếm</li>
+                                <li>Thêm tính năng cắt/ghép video</li>
+                                <li>Hỗ trợ Termux trên Android</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card products">
+                        <div class="column product">
+                            <div class="icon-wrapper-gradient"><div class="icon-wrapper">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-package"><path d="m7.5 4.27 9 5.15"></path><path d="M2.5 8.66V14l5 2.88"></path><path d="M12.5 2.12 18 5.15 21.5 7.12"></path><path d="M12.5 2.12 7 5.15 3.5 7.12"></path><path d="M12.5 2.12V14"></path><path d="M12.5 14 18 16.88 21.5 14"></path><path d="M12.5 14 7 16.88 3.5 14"></path><path d="M7.5 16.88 12.5 14l5 2.88"></path><path d="M12.5 14v5.73"></path></svg>
+                            </div></div>
+                            <div class="sub-heading-small">v1.0.0 (15/03/2025)<br/></div>
+                        </div>
+                        <div class="content features">
+                            <ul>
+                                <li>Phiên bản đầu tiên</li>
+                                <li>Thêm hệ thống cache</li>
+                                <li>Cải thiện giao diện (sẽ update lại sau)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="troubleshoot" class="section">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="section-tittle">
+                    <div class="badge">
+                        <div class="icon w-embed">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bug"><path d="M8 2h8"></path><path d="M17.5 10c-.8 0-1.5-.7-1.5-1.5V7c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v1.5c0 .8-.7 1.5-1.5 1.5H3v3h.5L7 22h10l3.5-6.5H21v-3h-2.5z"></path><path d="M12 7v4"></path><path d="M12 15v2"></path></svg>
+                        </div>
+                        <div class="tittle-badge">Báo cáo lỗi & Khắc phục - Để Anisub luôn mượt mà cho Hoàng</div>
+                    </div>
+                    <h2 class="heading-style-h2 align-center">
+                        Giúp Anisub Pro Max hoàn thiện hơn <em class="span-h1">mỗi ngày</em>
+                    </h2>
+                    <p class="paragraph-large align-center">
+                        Hướng dẫn báo cáo lỗi và tự khắc phục các vấn đề thường gặp.
+                    </p>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-accordion">
+                        <div class="faq-question">
+                            <div class="sub-heading-large">Cách báo cáo lỗi<br/></div>
+                            <div class="faq-icon">
+                                <div class="icon-wrapper faq">
+                                    <div class="icon w-embed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="paragraph-regular answer">
+                                1. **Kiểm tra lỗi đã được báo cáo chưa:** Xem qua mục <a href="https://github.com/kidtomboy/Anisub/issues" target="_blank" style="color: var(--primary);">Issues</a> trên GitHub.
+                                <br/>2. **Thu thập thông tin:** Phiên bản Anisub (<code style="background-color: #333; padding: 3px 6px; border-radius: 4px;">./anisub.sh --version</code>), Hệ điều hành, thông báo lỗi từ terminal, file log (<code style="background-color: #333; padding: 3px 6px; border-radius: 4px;">~/.config/anisub_pro/logs/</code>).
+                                <br/>3. **Tạo báo cáo lỗi mới:** Truy cập <a href="https://github.com/kidtomboy/Anisub/issues" target="_blank" style="color: var(--primary);">trang Issues</a>, chọn "Bug Report", điền đầy đủ thông tin theo mẫu.
+                            </p>
+                            <pre style="background-color: #333; padding: 10px; border-radius: 8px; overflow-x: auto; margin-top: 15px;"><code>**Mô tả lỗi**
+Mô tả rõ ràng và chi tiết về lỗi gặp phải
+**Các bước để tái tạo lỗi**
+1. Bước 1...
+2. Bước 2...
+3. Xem lỗi xảy ra
+**Kết quả mong đợi**
+Bạn mong đợi điều gì sẽ xảy ra?
+**Ảnh chụp màn hình/Ghi hình**
+Nếu có thể, hãy đính kèm ảnh chụp hoặc video
+**Thông tin hệ thống**
+- OS: [e.g. Ubuntu 22.04]
+- Anisub Version: [e.g. 2.0.0]
+- Terminal: [e.g. Terminator, GNOME Terminal]
+**File log**
+Đính kèm file log hoặc paste nội dung lỗi (xóa thông tin nhạy cảm)</code></pre>
+                            <p class="paragraph-regular answer" style="margin-top: 15px;">
+                                Đối với lỗi nghiêm trọng, bạn có thể:
+                                <br/>- Tạm thời sử dụng phiên bản cũ: <code style="background-color: #333; padding: 3px 6px; border-radius: 4px;">git checkout tags/v1.0.0</code>
+                                <br/>- Liên hệ trực tiếp qua email: <a href="mailto:iamkidtomboyreal@gmail.com" style="color: var(--primary);">iamkidtomboyreal@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="faq-accordion">
+                        <div class="faq-question">
+                            <div class="sub-heading-large">Tự khắc phục lỗi thường gặp<br/></div>
+                            <div class="faq-icon">
+                                <div class="icon-wrapper faq">
+                                    <div class="icon w-embed">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="faq-answer">
+                            <p class="paragraph-regular answer">
+                                **1. Lỗi thiếu phụ thuộc:**
+                                <br/>   <code>[ERROR] Thiếu package: mpv</code>
+                                <br/>   Cách khắc phục: Cài đặt các package còn thiếu. Ví dụ:
+                                <br/>   <code># Ubuntu/Debian<br/>sudo apt install mpv</code>
+                                <br/>   <code># Arch Linux<br/>sudo pacman -S mpv</code>
+                                <br/>   <code># Termux<br/>pkg install mpv-x</code>
+                                <br/>
+                                <br/>**2. Lỗi kết nối:**
+                                <br/>   <code>[ERROR] Không thể kết nối đến OPhim17</code>
+                                <br/>   Cách khắc phục: Kiểm tra kết nối Internet, thử đổi DNS (8.8.8.8 hoặc 1.1.1.1), chờ 5 phút và thử lại.
+                                <br/>
+                                <br/>**3. Lỗi phát video:**
+                                <br/>   <code>[ERROR] Không thể phát video</code>
+                                <br/>   Cách khắc phục: Thử đổi trình phát mặc định (trong menu cài đặt), cập nhật driver đồ họa, kiểm tra file cấu hình.
+                                <br/>
+                                <br/>**4. Lỗi font chữ:**
+                                <br/>   <code>[WARNING] Hiển thị font chữ không đúng</code>
+                                <br/>   Cách khắc phục: Cài đặt font đầy đủ. Ví dụ:
+                                <br/>   <code># Linux<br/>sudo apt install fonts-noto</code>
+                                <br/>   <code># Termux<br/>pkg install fontconfig</code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="padding-global">
+            <div class="container-medium">
+                <div class="cta">
+                    <div class="section-tittle">
+                        <div class="badge">
+                            <div class="icon w-embed">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart"><path d="M20.42 4.58a5.4 5.4 0 0 0-7.66 0L12 5.34l-0.76-0.76a5.4 5.4 0 0 0-7.66 0C2.64 6.31 2.64 9 4.38 10.74L12 18.38l7.62-7.64c1.74-1.74 1.74-4.43 0-6.17z"></path></svg>
+                            </div>
+                            <div class="tittle-badge">Cảm ơn Hoàng đã 'chiêm ngưỡng'</div>
+                        </div>
+                        <h2 class="heading-style-h2 align-center">
+                            Đóng góp để Anisub Pro Max <em class="span-h1">tuyệt vời hơn</em>!
+                        </h2>
+                        <p class="paragraph-large align-center">
+                            Mọi đóng góp từ Hoàng và cộng đồng đều được Trang trân trọng để Anisub Pro Max ngày càng hoàn thiện!
+                        </p>
+                        <a href="https://github.com/kidtomboy/Anisub" target="_blank" class="button w-button">Đóng góp trên GitHub</a>
+                    </div>
+                </div>
+                <div class="footer-container">
+                    <div class="footer-content">
+                        <div class="column-footer-logo">
+                            <a href="/" aria-current="page" class="navbar-brand w-inline-block w--current">
+                                <img src="https://cdn.prod.website-files.com/6854c7a8902ef7b67f040d56/68553905860d1da7b26c1713_Logo%20(7).png" loading="lazy" alt="" class="logo"/>
+                                Anisub Pro Max
+                            </a>
+                        </div>
+                        <div class="container-menu"></div>
+                        <div class="menu-footer">
+                            <p class="paragraph-small">
+                                Original: <a href="https://github.com/NiyakiPham" target="_blank" style="color: var(--primary);">NiyakiPham</a> | Remake & Enhance: <a href="https://github.com/kidtomboy" target="_blank" style="color: var(--primary);">Kidtomboy</a>
+                            </p>
+                            <p class="paragraph-small">
+                                © 2025 Anisub Pro Max. Dự án này được phân phối theo giấy phép MIT.
+                            </p>
+                            <div class="icon-column" style="justify-content: center; margin-top: 15px;">
+                                <a href="https://github.com/sponsors/kidtomboy" target="_blank" style="color: var(--foreground);" title="GitHub Sponsors">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c.5-.9 1.3-2.1 0-3.3c-.2-.5-1.5-1.5-1.5-1.5s-1.8.2-2.9 1.4c-.1.1-.3.2-.5.2-.2 0-.4-.1-.5-.2c-1.1-1.2-2.9-1.4-2.9-1.4s-1.3.9-1.5 1.5c-1.3 1.2-.5 2.4 0 3.3-.5 1.1-.2 2.3-.2 3.2v4c0 .8-.5 1-1 1H4c-.8 0-1-.5-1-1V5c0-.8.5-1 1-1h16c.8 0 1 .5 1 1v12c0 .8-.5 1-1 1h-2c-.8 0-1-.5-1-1z"></path></svg>
+                                </a>
+                                <a href="https://momo.vn/0387831869" target="_blank" style="color: var(--foreground);" title="Donate via Momo">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet"><path d="M19 14c1.1 0 2 .9 2 2v2c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2v-2c0-1.1.9-2 2-2h14Z"></path><path d="M19 14V4c0-1.1-.9-2-2-2H7c-1.1 0-2 .9-2 2v10"></path></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-accordion').forEach(accordion => {
+            accordion.querySelector('.faq-question').addEventListener('click', () => {
+                accordion.classList.toggle('open');
+                const answer = accordion.querySelector('.faq-answer');
+                if (accordion.classList.contains('open')) {
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    answer.style.paddingTop = "15px";
+                } else {
+                    answer.style.maxHeight = "0";
+                    answer.style.paddingTop = "0";
+                }
+            });
+        });
+
+        // Toggle mobile nav menu (basic implementation)
+        const menuButton = document.querySelector('.menu-button');
+        const navMenu = document.querySelector('.navbar-menu');
+
+        if (menuButton) {
+            menuButton.addEventListener('click', () => {
+                navMenu.classList.toggle('open'); // Add/remove 'open' class for visibility
+                // You might need to add CSS for .navbar-menu.open { display: flex; flex-direction: column; ... }
+            });
+
+            // Close menu when a link is clicked (for mobile)
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('open');
+                });
+            });
+        }
+
+        // Script to handle animations on scroll (simplified from Lummer AI's Webflow logic)
+        // This is a basic observer. For complex animations like Webflow's, a full GSAP setup would be needed.
+        const animateOnScrollElements = document.querySelectorAll('.hero-section .background, .hero-section .hero-image, .hero-section .hero-tittle, .hero-section .paragraph-large, .hero-section .button-column, .section .section-tittle, .section .grid, .section .faq-list');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationName = 'fadeInScale'; // Or slideUpFadeIn based on element
+                    if (entry.target.classList.contains('hero-tittle') || entry.target.classList.contains('paragraph-large') || entry.target.classList.contains('button-column') || entry.target.classList.contains('section-tittle') || entry.target.classList.contains('grid') || entry.target.classList.contains('faq-list')) {
+                        entry.target.style.animationName = 'slideUpFadeIn';
+                    }
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0) scale(1)';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animateOnScrollElements.forEach(element => {
+            observer.observe(element);
+        });
+        
+        // Initial animation for hero section if already in view
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.hero-section .background, .hero-section .hero-image, .hero-section .hero-tittle, .hero-section .paragraph-large, .hero-section .button-column .button').forEach(element => {
+                element.style.animationPlayState = 'running';
+            });
+        });
+
+    </script>
+</body>
+</html>
